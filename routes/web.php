@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,14 +19,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name("welcome");
+//^^ FrontEnd 
+Route::get('/',[HomeController::class,"Home"])->name("welcome");
+Route::get('/categorie',[CategorieController::class,"categorie"])->name("categorie");
+Route::get('/contact',[ContactController::class,"Contact"])->name("Contact");
+Route::get('/cart',[CartController::class,"Cart"])->name("Cart");
+Route::get('/login',[LoginController::class,"Login"])->name("Logine");
+Route::get('/register',[LoginController::class,"register"])->name("registere");
+
+
+
 
 
 
 // ^^dashboard
-Route::get('/dashboard', function () {
+Route::get('/dash', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
