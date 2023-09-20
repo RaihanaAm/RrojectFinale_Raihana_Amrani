@@ -55,12 +55,23 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route("Contact")}}">Contact</a>
                                 </li>
+                                @auth
+                                    @hasrole("admin")
+                                    <li class="nav-item">
+                                        <a class="nav-link text-danger" href="{{route("dashboard.front")}}">Dashboard</a>
+                                    </li>
+                                    @endhasrole
+                                    @hasrole("webMaster")
+                                    <li class="nav-item">
+                                        <a class="nav-link text-danger" href="{{route("webmaster")}}">WebMaster</a>
+                                    </li>
+                                    @endhasrole
+                                @endauth
                             </ul>
                         </div>
                         <div class="hearer_icon d-flex">
                             <a href="#"><i class="ti-heart"></i></a>
                             @guest
-                                
                             <a href="{{route("Logine")}}"><i class="ti-user"></i></a>
                             @endguest
                             <a href="{{route("Cart")}}">
@@ -74,15 +85,12 @@
                             @auth
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <x-dropdown-link class="text-dark" :href="route('logout')"
+                                <x-dropdown-link class="text-danger" :href="route('logout')"
                                         onclick="event.preventDefault();
                                                     this.closest('form').submit();">
                                     {{ __('Out') }}
                                 </x-dropdown-link>
                             </form>
-                            @hasrole('admin')
-                            <h1>admin</h1>
-                            @endhasrole
                             @endauth
                         </div>
                     </nav>
@@ -90,6 +98,7 @@
             </div>
         </div>
      </header>
+
     @yield('content')
 
  <!--::footer_part start::-->
