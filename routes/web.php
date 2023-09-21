@@ -31,8 +31,12 @@ Route::get('/register',[LoginController::class,"register"])->name("registere");
 Route::get('/dashboard',[dashboardController::class,"dashboard"])->middleware(['auth',"admin"])->name("dashboard.front");
 Route::get('/webmaster',[masterColntroller::class,"webmaster"])->middleware(['auth',"master"])->name("webmaster");
 
-
-
+//^^backend
+Route::get('/contactBackend',[ContactController::class,"contactBack"])->name("contactBack")->middleware(['auth',"admin"]);
+Route::get('/touch',[ContactController::class,"touchback"])->name("touchback")->middleware(['auth',"admin"]);
+Route::put('/contactBackend/{contact}',[ContactController::class,"store"])->name("store.contact");
+Route::post('/contact/touch',[ContactController::class,"touch"])->name("touch.contact");
+Route::post('/newsletter',[ContactController::class,"newsletter"])->name("newsletter.contact");
 
 
 // ^^dashboard
