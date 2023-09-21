@@ -1,66 +1,36 @@
-
-@extends("layout.Front")
-@section("content")
+@extends('layout.Front')
+@section('content')
     <!-- banner part start-->
     <section class="banner_part">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="banner_slider owl-carousel">
+                        {{-- carouseel --}}
+                        @foreach ($products as $index => $product)
+                        @if ($index >= 1 && $index <= 4)
+
                         <div class="single_banner_slider">
                             <div class="row">
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
                                         <div class="banner_text_iner">
-                                            <h1>Wood & Cloth
-                                                Sofa</h1>
-                                            <p>Incididunt ut labore et dolore magna aliqua quis ipsum
-                                                suspendisse ultrices gravida. Risus commodo viverra</p>
-                                            <a href="#" class="btn_2">buy now</a>
+                                            <h1>{{$product->name}} </h1>
+                                            <p>{{$product->desc}} </p>
+
+                                            <button  class="btn "><a href="{{route("singlepage.show",$product->id)}}" class="btn_2">buy now</a></button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
-                                    <img src="img/banner_img.png" alt="">
+                                    <img src="{{asset('storage/'.$product->img)}}" alt="">
                                 </div>
                             </div>
                         </div>
-                        <div class="single_banner_slider">
-                            <div class="row">
-                                <div class="col-lg-5 col-md-8">
-                                    <div class="banner_text">
-                                        <div class="banner_text_iner">
-                                            <h1>Cloth & Wood
-                                                Sofa</h1>
-                                            <p>Incididunt ut labore et dolore magna aliqua quis ipsum
-                                                suspendisse ultrices gravida. Risus commodo viverra</p>
-                                            <a href="#" class="btn_2">buy now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="banner_img d-none d-lg-block">
-                                    <img src="img/banner_img.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_banner_slider">
-                            <div class="row">
-                                <div class="col-lg-5 col-md-8">
-                                    <div class="banner_text">
-                                        <div class="banner_text_iner">
-                                            <h1>Wood & Cloth
-                                                Sofa</h1>
-                                            <p>Incididunt ut labore et dolore magna aliqua quis ipsum
-                                                suspendisse ultrices gravida. Risus commodo viverra</p>
-                                            <a href="#" class="btn_2">buy now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="banner_img d-none d-lg-block">
-                                    <img src="img/banner_img.png" alt="">
-                                </div>
-                            </div>
-                        </div>
+                        
+                        @endif
+                    @endforeach
+
                     </div>
                     <div class="slider-counter"></div>
                 </div>
@@ -132,6 +102,7 @@
                     <div class="product_list_slider owl-carousel">
                         <div class="single_product_list_slider">
                             <div class="row align-items-center justify-content-between">
+
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="single_product_item">
                                         <img src="img/product/product_1.png" alt="">
@@ -168,8 +139,7 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i
-                                                    class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -179,8 +149,7 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i
-                                                    class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -190,8 +159,7 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i
-                                                    class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -201,8 +169,7 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i
-                                                    class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -220,14 +187,14 @@
                         </div>
                         <div class="single_product_list_slider">
                             <div class="row align-items-center justify-content-between">
+                                {{-- 2****************** --}}
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="single_product_item">
                                         <img src="img/product/product_1.png" alt="">
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i
-                                                    class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -237,8 +204,7 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i
-                                                    class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -248,8 +214,7 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i
-                                                    class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -259,8 +224,7 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i
-                                                    class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -270,8 +234,7 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i
-                                                    class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -281,8 +244,7 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i
-                                                    class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -292,8 +254,7 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i
-                                                    class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -303,8 +264,7 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i
-                                                    class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -338,18 +298,12 @@
                                 <div id="seconds" class="date"></div>
                             </div>
                         </div>
-                        {{-- <div class="input-group">
-                            <input type="text" class="form-control" placeholder="enter email address"
-                                aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <a href="#" class="input-group-text btn_2" id="basic-addon2">book now</a>
-                            </div>
-                        </div> --}}
-                        <form action="{{route("newsletter.contact")}}" method="POST" class="input-group">
+                        <form action="{{ route('newsletter.contact') }}" method="POST" class="input-group">
                             @csrf
                             <div class="d-flex gap-2">
 
-                                <input type="email" name="email" id="newsletter" placeholder="Email Address" class="form-control">
+                                <input type="email" name="email" id="newsletter" placeholder="Email Address"
+                                    class="form-control">
                                 <button type="submit" name="submit" id="newsletter-submit"
                                     class="input-group-text btn_2">Booknow</button>
                             </div>
@@ -425,15 +379,16 @@
                         <h5>Join Our Newsletter</h5>
                         <h2>Subscribe to get Updated
                             with new offers</h2>
-                            <form action="{{route("newsletter.contact")}}" method="POST" class="input-group">
-                                @csrf
-                                <div class="d-flex gap-2">
-    
-                                    <input type="email" name="email" id="newsletter" placeholder="Email Address" class="form-control">
-                                    <button type="submit" name="submit" id="newsletter-submit"
-                                        class="input-group-text btn_2">Subscrube now</button>
-                                </div>
-                            </form>
+                        <form action="{{ route('newsletter.contact') }}" method="POST" class="input-group">
+                            @csrf
+                            <div class="d-flex gap-2">
+
+                                <input type="email" name="email" id="newsletter" placeholder="Email Address"
+                                    class="form-control">
+                                <button type="submit" name="submit" id="newsletter-submit"
+                                    class="input-group-text btn_2">Subscrube now</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

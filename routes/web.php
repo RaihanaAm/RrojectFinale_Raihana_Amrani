@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\master;
 use App\Http\Controllers\masterColntroller;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SingleControllet;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,7 @@ Route::get('/login',[LoginController::class,"Login"])->name("Logine");
 Route::get('/register',[LoginController::class,"register"])->name("registere");
 Route::get('/dashboard',[dashboardController::class,"dashboard"])->middleware(['auth',"admin"])->name("dashboard.front");
 Route::get('/webmaster',[masterColntroller::class,"webmaster"])->middleware(['auth',"master"])->name("webmaster");
+Route::get('/singleproduct/{product}',[SingleControllet::class,'singlepage'])->name("singlepage.show");
 
 //^^backend
 Route::get('/contactBackend',[ContactController::class,"contactBack"])->name("contactBack")->middleware(['auth',"admin"]);
