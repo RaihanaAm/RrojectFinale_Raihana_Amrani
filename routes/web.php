@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductbackController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SingleControllet;
 use App\Http\Controllers\UserbackController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,11 +44,18 @@ Route::post('/contact/touch',[ContactController::class,"touch"])->name("touch.co
 Route::post('/newsletter',[ContactController::class,"newsletter"])->name("newsletter.contact");
 //&&users
 Route::get('/userback',[UserbackController::class,"users"])->name("users.back")->middleware(['auth',"admin"]);
+Route::post('/createusers',[UsersController::class,"store"])->name("usersStore.back");
+Route::delete('/deleteuser/{user}',[UsersController::class,"destroy"])->name("destroyUser.back");
+Route::put('/rolees/{user}',[UsersController::class,"editeRole"])->name("editeRoleUser.back");
+
+
 //&& product
 Route::get('/product',[ProductbackController::class,"product"])->name("product.back")->middleware(['auth',"admin"]);
 Route::post('/product/create',[ProductbackController::class,"store"])->name("store.back")->middleware(['auth']);
 Route::put('/product/{product}',[ProductbackController::class,"update"])->name("update.back")->middleware(['auth']);
 Route::delete('/product/{product}',[ProductbackController::class,"destroy"])->name("destroy.back")->middleware(['auth',"admin"]);
+
+
 //&& webmaster
 Route::get('/product/webmaster',[ProductbackController::class,"Master"])->name("Master.back")->middleware(['auth']);
 
