@@ -52,8 +52,8 @@ Route::put('/rolees/{user}',[UsersController::class,"editeRole"])->name("editeRo
 //&& product
 Route::get('/product',[ProductbackController::class,"product"])->name("product.back")->middleware(['auth',"admin"]);
 Route::post('/product/create',[ProductbackController::class,"store"])->name("store.back")->middleware(['auth']);
-Route::put('/product/{product}',[ProductbackController::class,"update"])->name("update.back")->middleware(['auth']);
-Route::delete('/product/{product}',[ProductbackController::class,"destroy"])->name("destroy.back")->middleware(['auth',"admin"]);
+Route::put('/product/{product}/update',[ProductbackController::class,"update"])->name("update.back")->middleware(['auth']);
+Route::delete('/product/{product}/delete',[ProductbackController::class,"destroy"])->name("destroy.back")->middleware(['auth',"admin"]);
 
 
 //&& webmaster

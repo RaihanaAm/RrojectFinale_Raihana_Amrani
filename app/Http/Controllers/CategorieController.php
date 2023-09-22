@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
 {
     public function categorie(){
-        return view("Frontend.categorie");
+        $products =Product::all();
+        return view("Frontend.categorie",compact('products'));
     }
 }
