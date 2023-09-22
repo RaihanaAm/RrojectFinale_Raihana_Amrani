@@ -132,7 +132,7 @@ class ProductSeeder extends Seeder
             'qnt' => 290,
             'price' => 250,
             'categorie_id' => 1,
-            'user_id' => 1 ,
+            'user_id' => 2 ,
         ]);
         Product::create([
             'name'=>"Quartz Belt 8 watch",
@@ -141,7 +141,7 @@ class ProductSeeder extends Seeder
             'qnt' => 50,
             'price' => 250,
             'categorie_id' => 1,
-            'user_id' => 1 ,
+            'user_id' => 2 ,
         ]);
         // *** tables
         Product::create([
@@ -160,7 +160,7 @@ class ProductSeeder extends Seeder
             'qnt' => 210,
             'price' => 250,
             'categorie_id' => 2,
-            'user_id' => 1 ,
+            'user_id' => 2 ,
         ]);
         Product::create([
             'name'=>"Table Belt 3 watch",
@@ -188,7 +188,7 @@ class ProductSeeder extends Seeder
             'qnt' => 250,
             'price' => 250,
             'categorie_id' => 3,
-            'user_id' => 1 ,
+            'user_id' => 2 ,
         ]);
         Product::create([
             'name'=>"sofa Belt 2 watch",

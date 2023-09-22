@@ -1,5 +1,6 @@
 @extends('layout.Back')
 @section('content')
+<h5 class="mb-5 text-center text-danger"> All Message from get in Touch</h5>
     <table class="table container">
         <thead>
             <tr>

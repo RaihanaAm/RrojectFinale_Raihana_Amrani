@@ -8,8 +8,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\master;
 use App\Http\Controllers\masterColntroller;
+use App\Http\Controllers\ProductbackController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SingleControllet;
+use App\Http\Controllers\UserbackController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,7 +41,15 @@ Route::get('/touch',[ContactController::class,"touchback"])->name("touchback")->
 Route::put('/contactBackend/{contact}',[ContactController::class,"store"])->name("store.contact");
 Route::post('/contact/touch',[ContactController::class,"touch"])->name("touch.contact");
 Route::post('/newsletter',[ContactController::class,"newsletter"])->name("newsletter.contact");
-
+//&&users
+Route::get('/userback',[UserbackController::class,"users"])->name("users.back")->middleware(['auth',"admin"]);
+//&& product
+Route::get('/product',[ProductbackController::class,"product"])->name("product.back")->middleware(['auth',"admin"]);
+Route::post('/product/create',[ProductbackController::class,"store"])->name("store.back")->middleware(['auth']);
+Route::put('/product/{product}',[ProductbackController::class,"update"])->name("update.back")->middleware(['auth']);
+Route::delete('/product/{product}',[ProductbackController::class,"destroy"])->name("destroy.back")->middleware(['auth',"admin"]);
+//&& webmaster
+Route::get('/product/webmaster',[ProductbackController::class,"Master"])->name("Master.back")->middleware(['auth']);
 
 // ^^dashboard
 Route::get('/dash', function () {
