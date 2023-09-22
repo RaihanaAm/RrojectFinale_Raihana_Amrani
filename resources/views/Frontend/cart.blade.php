@@ -36,32 +36,32 @@
 
 
                             {{-- ********************* --}}
+                            @foreach ($userProducts as $userProduct )
                             <tr>
                                 <td>
                                     <div class="media">
                                         <div class="d-flex">
-                                            <img src="img/product/single-product/cart-1.jpg" alt="" />
+                                            <img src="{{asset('storage/'.$userProduct->product->img)}}" width="150" alt="" />
                                         </div>
                                         <div class="media-body">
-                                            <p>Minimalistic shop for multipurpose use</p>
+                                            <p>{{$userProduct->product->name}}</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <h5>$360.00</h5>
+                                    <h5>{{$userProduct->product->price}}$</h5>
                                 </td>
                                 <td>
                                     <div class="product_count">
-                                        <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
-                                        <input class="input-number" type="text" value="1" min="0"
+                                        <input class="input-number" type="text" disabled value="{{$userProduct->qnt}}" min="0"
                                             max="10">
-                                        <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
                                     </div>
                                 </td>
                                 <td>
-                                    <h5>$720.00</h5>
+                                    <h5>${{$userProduct->product->price * $userProduct->qnt}}</h5>
                                 </td>
                             </tr>
+                            @endforeach
                             {{-- ********************* --}}
 
 
@@ -87,7 +87,7 @@
                                     <h5>Subtotal</h5>
                                 </td>
                                 <td>
-                                    <h5>$2160.00</h5>
+                                    <h5>$</h5>
                                 </td>
                             </tr>
 

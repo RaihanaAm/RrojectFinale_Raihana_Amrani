@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductbackController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SingleControllet;
 use App\Http\Controllers\UserbackController;
+use App\Http\Controllers\userProductsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,6 +59,10 @@ Route::delete('/product/{product}/delete',[ProductbackController::class,"destroy
 
 //&& webmaster
 Route::get('/product/webmaster',[ProductbackController::class,"Master"])->name("Master.back")->middleware(['auth']);
+
+
+// &&cart
+Route::put('/product/{product}/cart',[userProductsController::class,"store"])->name("storeCart.back")->middleware(['auth']);
 
 // ^^dashboard
 Route::get('/dash', function () {

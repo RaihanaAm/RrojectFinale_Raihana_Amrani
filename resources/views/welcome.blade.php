@@ -97,7 +97,13 @@
                                                 <div class="single_product_text">
                                                     <h4>{{ $product->name }}</h4>
                                                     <h3>${{ $product->price }}.00</h3>
-                                                    <a class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                                    <form action="{{route('storeCart.back', $product->id)}}" method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <button class="btn" type='submit'><a class="add_cart">+ add to
+                                                                cart<i class="ti-heart"></i></a> </button>
+                                                    </form>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -168,8 +174,8 @@
                             @if ($product->qnt <= 5)
                                 <div class="single_product_item ml-3">
                                     <a href="{{ route('singlepage.show', $product->id) }}">
-                                        <img class="" src="{{ asset('storage/' . $product->img) }}" width="250" height="250"
-                                            alt="">
+                                        <img class="" src="{{ asset('storage/' . $product->img) }}" width="250"
+                                            height="250" alt="">
                                     </a>
                                     <div class="single_product_text">
                                         <h4>{{ $product->name }}</h4>
