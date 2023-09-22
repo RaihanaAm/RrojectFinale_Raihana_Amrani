@@ -1,5 +1,8 @@
 @extends('layout.Back')
 @section('content')
+<div class="text-center mb-5">
+    @include('Backend.components.createproduct')
+</div>
     <table class="table container">
         <thead>
             <tr>

@@ -26,7 +26,7 @@ class ProductbackController extends Controller
             'price' => ["required"],
             'categorie_id' => ["required"],
         ]);
-
+        $request->file("img")->storePublicly('/', 'public');
         $data = [
             "name" => $request->name,
             "desc"  => $request->desc,

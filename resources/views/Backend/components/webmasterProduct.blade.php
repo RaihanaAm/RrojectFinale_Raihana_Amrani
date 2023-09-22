@@ -22,8 +22,7 @@
                 <td>{{ $product->name }} </td>
                 <td> <img src="{{asset("storage/".$product->img)}}" width="80" alt=""></td>
                 <td>@include('Backend.components.productshow')</td>
-                <td>@include("Backend.components.productedite")</td>
-            
+                <td>@include("Backend.components.productedite")</td>            
             </tr>
             @endif
             @endforeach

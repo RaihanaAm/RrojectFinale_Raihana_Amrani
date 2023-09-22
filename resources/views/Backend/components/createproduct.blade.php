@@ -15,7 +15,6 @@
             <div class="modal-body">
                 <form action="{{route("store.back")}}"  method="POST" enctype="multipart/form-data">
                     @csrf
-       
                     <div>
                       <label for="name">Write ur name</label>
                       <input type="text" class="form-control" name="name" id="name"  required>
